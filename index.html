@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+		<script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
+
+		<script src="regular_expression_tester.js"></script>
+		
+		<title>Something Something Title</title>
+	</head>
+
+	<body>
+		<!-- CONTAINER START -->
+		<div class="container" style="margin-top: 2%;">
+
+			<!-- FORM START -->
+			<div>
+				<form action="/" method="post">
+					<div class="form-group">
+					  <label><h5>Regular Expression String:</h5></label>
+					  <input id="regex-string" type="text" class="form-control" name="regular_expression" placeholder="Enter regular expression...">
+					</div>
+
+					<div class="form-group">
+					  <label><h5>Text Content:</h5></label>
+					  <textarea class="form-control" id="text-content" rows="4" cols="50" style="resize: none;" name="text_content" form="usrform" placeholder="Enter text here..."></textarea>
+					</div>
+
+					<label><h5>Match Result:</h5></label><br>
+					<div id="match-results" class="form-group">
+						
+					</div>
+
+				  <button type="button" class="btn btn-primary" onclick="checkRegEx()">Check RegEx</button>
+				</form>
+			</div>
+			<!-- FORM END -->
+
+			<br>
+
+			<h4 class="text-center">Regex Quick Reference</h4>
+
+			<!-- TABLE START -->
+			<div class="table-responsive" style="margin-bottom: 2%;">
+				<table class="table table-striped">
+					<tr>
+						<td>[abc]</td><td>A single character of: a, b, or c</td><td>.</td><td>Any single character</td><td>(...)</td><td>Capture everything enclosed</td>
+					</tr>
+					<tr>
+						<td>[^abc]</td><td>Any single character except: a, b, or c</td><td>\s</td><td>Any whitespace character</td><td>(a|b)</td><td>a or b</td>
+					</tr>
+					<tr>
+						<td>[a-z]</td><td>Any single character in the range a-z</td><td>\S</td><td>Any non-whitespace character</td><td>a?</td><td>Zero or one of a</td>
+					</tr>
+					<tr>
+						<td>[a-zA-Z]</td><td>Any single character in the range a-z or A-Z</td><td>\d</td><td>Any digit</td><td>a*</td><td>Zero or more of a</td>
+					</tr>
+					<tr>
+						<td>^</td><td>Start of line</td><td>\D</td><td>Any non-digit</td><td>a+</td><td>One or more of a</td>
+					</tr>
+					<tr>
+						<td>$</td><td>End of line</td><td>\w</td><td>Any word character (letter, number, underscore)</td><td>a{3}</td><td>Exactly 3 of a</td>
+					</tr>
+					<tr>
+						<td>\A</td><td>Start of string</td><td>\W</td><td>Any non-word character</td><td>a{3,}</td><td>3 or more of a</td>
+					</tr>
+					<tr>
+						<td>\z</td><td>End of string</td><td>\b</td><td>Any word boundary</td><td>a{3,6}</td><td>Between 3 and 6 of a</td>
+					</tr>
+				</table>
+			</div>
+			<!-- TABLE END -->
+
+		</div>
+		<!-- CONTAINER END -->
+	</body>
+
+</html>
