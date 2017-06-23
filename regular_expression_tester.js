@@ -2,24 +2,40 @@ var checkRegEx = function(){
 	var regexString = document.getElementById('regex-string').value;
 	var textContent = document.getElementById('text-content').value;
 
-	var re = new RegExp(regexString, 'g');
+	if(textContent && regexString){
+		try{
 
-	var holder = [];
-	var xArray = []; 
 
-	while(holder){
-		holder = re.exec(textContent);
-		if(holder){
-			xArray.push({ match:holder[0] , index:holder['index']});
+			var re = new RegExp(regexString, 'g');
+
+			console.log(re);
+
+			if(re){
+
+				var holder = [];
+				var xArray = []; 
+
+				do{
+					holder = re.exec(textContent);
+					if(holder){
+						xArray.push({ match:holder[0] , index:holder['index']});
+					}
+				}while(holder && holder != "");
+
+				if(xArray.length > 0){
+					document.getElementById('match-results').innerHTML = highlightAllText(xArray,textContent,0);
+				}
+				else{
+					document.getElementById('match-results').innerHTML = "No results";
+				}
+			}
+
+		}
+		catch(err){
+			document.getElementById('match-results').innerHTML = "Regular Expression Invalid";
 		}
 	};
 
-	if(xArray.length > 0){
-		document.getElementById('match-results').innerHTML = highlightAllText(xArray,textContent,0);
-	}
-	else{
-		document.getElementById('match-results').innerHTML = "No results";
-	}
 };
 
 var highlightAllText = function(matchArray, textContent, startIndex){
