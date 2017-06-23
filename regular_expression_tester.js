@@ -9,10 +9,8 @@ var checkRegEx = function(){
 			var re = new RegExp(regexString, 'g');
 
 			if(re){
-
 				var holder = [];
 				var xArray = []; 
-
 				//Loop through the RegEx matches
 				do{
 					holder = re.exec(textContent);
@@ -28,14 +26,13 @@ var checkRegEx = function(){
 					document.getElementById('match-results').innerHTML = "No results";
 				}
 			}
-
 		}
 		catch(err){
 			document.getElementById('match-results').innerHTML = "Regular Expression Invalid";
 		}
 	} else {
 		document.getElementById('match-results').innerHTML = "No results";
-	};
+	}
 
 };
 
@@ -57,7 +54,7 @@ var highlightAllText = function(matchArray, textContent, startIndex){
 	textOutput = highlight(shiftArray, textContent, startIndex) + highlightAllText(matchArray, textContent, shiftArray["index"] + shiftArray["match"].length);
 
 	return textOutput; 
-}
+};
 
 //Highlights the match
 var highlight = function(match, textContent, startIndex){
@@ -66,4 +63,4 @@ var highlight = function(match, textContent, startIndex){
 	textOutput = textContent.substring(startIndex, match["index"]) + "<span style='background-color:yellow;'>" + textContent.substring(match["index"], match["index"] + match["match"].length) + "</span>";
 
 	return textOutput;
-}
+};

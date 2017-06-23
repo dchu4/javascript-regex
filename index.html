@@ -18,7 +18,7 @@
 
 			<!-- FORM START -->
 			<div>
-				<form action="/" method="post">
+				<form action="/" method="post" onkeypress="return event.keyCode != 13;">
 					<div class="form-group">
 					  <label><h5>Regular Expression String:</h5></label>
 					  <input id="regex-string" type="text" class="form-control" name="regular_expression" placeholder="Enter regular expression..." onkeyup="checkRegEx()">
@@ -30,9 +30,7 @@
 					</div>
 
 					<label><h5>Match Result:</h5></label><br>
-					<div id="match-results" class="form-group">No results</div>
-
-				  <!-- <button type="button" class="btn btn-primary" onclick="checkRegEx()">Check RegEx</button> -->
+					<div id="match-results" class="form-group" style="word-wrap: break-word;">No results</div>
 				</form>
 			</div>
 			<!-- FORM END -->
